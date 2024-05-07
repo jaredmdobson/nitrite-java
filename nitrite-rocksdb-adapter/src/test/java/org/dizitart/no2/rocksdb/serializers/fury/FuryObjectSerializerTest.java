@@ -9,14 +9,14 @@ public class FuryObjectSerializerTest {
 
     @Test
     public void testEncode() {
-        assertEquals(6, (new KryoObjectSerializer()).<Object>encode("object").length);
-        assertEquals(1, (new KryoObjectSerializer()).encode(null).length);
+        assertEquals(10, (new FuryObjectSerializer()).<Object>encode("object").length);
+        assertEquals(1, (new FuryObjectSerializer()).encode(null).length);
     }
 
     @Test
     public void testEncodeKey() {
-        assertEquals(1, (new KryoObjectSerializer()).encodeKey(null).length);
-        assertEquals(6, (new KryoObjectSerializer()).<Object>encodeKey("object").length);
+        assertEquals(1, (new FuryObjectSerializer()).encodeKey(null).length);
+        assertEquals(10, (new FuryObjectSerializer()).<Object>encodeKey("object").length);
     }
 }
 

@@ -54,7 +54,7 @@ public abstract class BaseCollectionTest {
     protected Document doc1, doc2, doc3;
     protected SimpleDateFormat simpleDateFormat;
     private final String fileName = getRandomTempDbFile();
-    protected final KryoObjectSerializer fstMarshaller = new KryoObjectSerializer();
+    protected final KryoObjectSerializer kryoObjectSerializer = new KryoObjectSerializer();
 	
 	@Rule
     public Retry retry = new Retry(3);
@@ -115,11 +115,11 @@ public abstract class BaseCollectionTest {
     }
 
     private void openDb() {
-        fstMarshaller.registerSerializer(DateTime.class, new JodaTimeKryoKeySerializer());
+        kryoObjectSerializer.registerSerializer(DateTime.class, new JodaTimeKryoKeySerializer());
 
         RocksDBModule storeModule = RocksDBModule.withConfig()
                 .filePath(fileName)
-                .objectSerializer(fstMarshaller)
+                .objectSerializer(kryoObjectSerializer)
                 .build();
 
         if (isSecured) {

@@ -160,7 +160,7 @@
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
                     <sourceFileExcludes>
-                        <exclude>**/serializers/*.java</exclude>
+                        <exclude>**/serializers/**/*.java</exclude>
                         <exclude>**/*CleaningAction.java</exclude>
                         <exclude>**/*Constants.java</exclude>
                         <exclude>**/*RocksDBMap.java</exclude>

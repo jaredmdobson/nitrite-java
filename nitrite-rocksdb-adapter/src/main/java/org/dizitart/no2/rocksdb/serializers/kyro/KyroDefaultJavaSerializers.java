@@ -11,7 +11,7 @@ import java.util.UUID;
  * @since 4.0
  * @author Anindya Chatterjee
  */
-public class DefaultJavaSerializers {
+public class KyroDefaultJavaSerializers {
 
     private static class UUIDSerializer extends Serializer<UUID> {
 

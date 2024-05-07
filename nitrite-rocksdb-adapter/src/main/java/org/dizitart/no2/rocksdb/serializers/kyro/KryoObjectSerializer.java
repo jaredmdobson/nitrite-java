@@ -131,8 +131,8 @@ public class KryoObjectSerializer implements ObjectSerializer {
     private void registerInternalSerializers() {
         try {
             KyroNitriteSerializers.registerAll(this);
-            DefaultJavaSerializers.registerAll(this);
-            DefaultTimeKeySerializers.registerAll(this);
+            KyroDefaultJavaSerializers.registerAll(this);
+            KyroDefaultTimeKeySerializers.registerAll(this);
         } catch (Exception e) {
             log.error("Error while registering default serializers", e);
             throw new NitriteIOException("Failed to register default serializers", e);

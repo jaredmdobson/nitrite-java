@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  * @author Anindya Chatterjee
  */
 public class KyroNitriteSerializers {
-    private static class NitriteIdSerializer extends ComparableKeySerializer<NitriteId> {
+    private static class NitriteIdSerializer extends KyroComparableKeySerializer<NitriteId> {
 
         @Override
         protected void writeKeyInternal(Kryo kryo, Output output, NitriteId object) {

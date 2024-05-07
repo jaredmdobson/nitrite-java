@@ -16,10 +16,10 @@ import java.util.Locale;
  * @since 4.0
  * @author Anindya Chatterjee
  */
-class DefaultTimeKeySerializers {
+class KyroDefaultTimeKeySerializers {
     private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ENGLISH);
 
-    private static class DateSerializer extends ComparableKeySerializer<Date> {
+    private static class DateSerializer extends KyroComparableKeySerializer<Date> {
 
         @Override
         public void writeKeyInternal(Kryo kryo, Output output, Date object) {
@@ -36,7 +36,7 @@ class DefaultTimeKeySerializers {
         }
     }
 
-    private static class TimestampSerializer extends ComparableKeySerializer<Timestamp> {
+    private static class TimestampSerializer extends KyroComparableKeySerializer<Timestamp> {
 
         @Override
         public void writeKeyInternal(Kryo kryo, Output output, Timestamp object) {
@@ -53,7 +53,7 @@ class DefaultTimeKeySerializers {
         }
     }
 
-    private static class SqlDateSerializer extends ComparableKeySerializer<java.sql.Date> {
+    private static class SqlDateSerializer extends KyroComparableKeySerializer<java.sql.Date> {
 
         @Override
         public void writeKeyInternal(Kryo kryo, Output output, java.sql.Date object) {
@@ -70,7 +70,7 @@ class DefaultTimeKeySerializers {
         }
     }
 
-    private static class TimeSerializer extends ComparableKeySerializer<Time> {
+    private static class TimeSerializer extends KyroComparableKeySerializer<Time> {
 
         @Override
         public void writeKeyInternal(Kryo kryo, Output output, Time object) {
@@ -87,7 +87,7 @@ class DefaultTimeKeySerializers {
         }
     }
 
-    private static class CalendarSerializer extends ComparableKeySerializer<Calendar> {
+    private static class CalendarSerializer extends KyroComparableKeySerializer<Calendar> {
 
         @Override
         protected void writeKeyInternal(Kryo kryo, Output output, Calendar object) {

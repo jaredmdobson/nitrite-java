@@ -12,14 +12,27 @@ import java.util.Arrays;
 
 import static org.dizitart.no2.rocksdb.Constants.DB_NULL;
 
+/**
+ * This class is a custom serializer using Fury.
+ * <p>
+ * WARNING: Changing serializers on an existing database can lead to data corruption or loss.
+ * If you need to change the serializer, consider creating a new database or ensure you have a
+ * reliable backup and migration strategy.
+ * </p>
+ */
 @Slf4j(topic = "nitrite-rocksdb")
 public class FuryObjectSerializer implements ObjectSerializer {
+
+
 
     private final ThreadSafeFury fury = new ThreadLocalFury(classLoader -> {
         Fury f = Fury.builder().withLanguage(Language.JAVA)
                 .withClassLoader(classLoader)
                 .requireClassRegistration(false)
                 .build();
+
+        // Fury already has java time serializers
+        // https://github.com/apache/incubator-fury/blob/main/java/fury-core/src/main/java/org/apache/fury/serializer/TimeSerializers.java
         FuryNitriteSerializers.registerAll(f);
         return f;
     });

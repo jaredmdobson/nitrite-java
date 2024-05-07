@@ -9,7 +9,7 @@ import org.joda.time.DateTime;
 /**
  * @author Anindya Chatterjee
  */
-public class JodaTimeKryoKeySerializer extends ComparableKeySerializer<DateTime> {
+public class JodaTimeKryoKeySerializer extends KyroComparableKeySerializer<DateTime> {
 
     @Override
     public void write(Kryo kryo, Output output, DateTime object) {
